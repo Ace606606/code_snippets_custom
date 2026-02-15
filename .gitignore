@@ -1,5 +1,10 @@
 .vscode
 
+cpp/build*
+.clang*
+
+py/*.toml
+
 # Prerequisites
 *.d
 
