@@ -1,7 +1,7 @@
 .vscode
-
-cpp/build*
+build*
 .clang*
+src/examples/test.cpp
 
 py/*.toml
 

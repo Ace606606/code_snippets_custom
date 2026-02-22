@@ -3,14 +3,15 @@
 #include <chrono>
 #include <iostream>
 #include <string>
+#include <string_view>
 
-namespace utils
+namespace ext::sys::utils::timer
 {
 
 class Timer final
 {
 public:
-     explicit Timer( const std::string& name ) : m_measurement_( name ), m_start_( std::chrono::steady_clock::now() ) {}
+     explicit Timer( std::string_view name ) : m_measurement_( name ), m_start_( std::chrono::steady_clock::now() ) {}
      ~Timer()
      {
           auto end = std::chrono::steady_clock::now();
@@ -41,4 +42,4 @@ private:
      std::chrono::time_point< std::chrono::steady_clock > m_start_;
 };
 
-} // namespace utils
+} // namespace ext::sys::utils::timer
