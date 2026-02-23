@@ -3,10 +3,10 @@
 Базовый шаблон для C++ проектов с поддержкой логгера, таймера и Unit-тестов.
 
 ## Options
--DCSC_BUILD_TESTS=ON/OFF: Build tests (default ON).
--DCSC_BUILD_SPDLOG=ON/OFF: Использовать spdlog или форматный вывод через fmt (default ON).
--DCSC_BUILD_EXTERNAL_DEPS=ON/OFF: Разрешить скачивание зависимостей из сети
--DFETCHCONTENT_BASE_DIR=~/cmake_dependencies: Установить зависимости отдельно
+- DCSC_BUILD_TESTS=ON/OFF: Build tests (default ON).
+- DCSC_BUILD_SPDLOG=ON/OFF: Использовать spdlog или форматный вывод через fmt (default ON).
+- DCSC_BUILD_EXTERNAL_DEPS=ON/OFF: Разрешить скачивание зависимостей из сети
+- DFETCHCONTENT_BASE_DIR=~/cmake_dependencies: Установить зависимости отдельно
 
 ## Build
 ```Bash
