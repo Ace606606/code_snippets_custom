@@ -1,0 +1,14 @@
+[Unit]
+Description=CSC CPU Load Monitor Daemon
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/csc-load-daemon
+Restart=on-failure
+RestartSec=5
+CPUQuota=5%
+MemoryLimit=50M
+
+[Install]
+WantedBy=multi-user.target

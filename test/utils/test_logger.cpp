@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-namespace logger = ext::sys::utils::logger;
+namespace logger = csc::utils::logger;
 
 TEST( LoggerTest, InitTest )
 {

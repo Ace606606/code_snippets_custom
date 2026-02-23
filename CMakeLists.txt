@@ -8,6 +8,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(CSC_BUILD_EXTERNAL_DEPS "Build external dependencies" ON)
 option(CSC_BUILD_EXAMPLES "Build example application" ON)
 option(CSC_BUILD_TESTS "Build tests" ON)
+option(CSC_INSTALL "Install" ON)
 
 add_subdirectory(third_party)
 
@@ -25,4 +26,8 @@ endif()
 if(CSC_BUILD_TESTS)
      enable_testing()
      add_subdirectory(test)
+endif()
+
+if(CSC_INSTALL)
+     include(cmake/Packaging.cmake)
 endif()

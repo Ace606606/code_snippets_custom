@@ -8,7 +8,7 @@
 namespace examples
 {
 
-using Timer = ext::sys::utils::timer::Timer;
+using Timer = csc::utils::timer::Timer;
 
 void test_heavy_computation( int count_elem )
 {

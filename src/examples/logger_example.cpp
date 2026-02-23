@@ -3,7 +3,7 @@
 namespace examples
 {
 
-namespace logger = ext::sys::utils::logger;
+namespace logger = csc::utils::logger;
 
 void run_logger_demo()
 {

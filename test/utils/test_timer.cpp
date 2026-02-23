@@ -7,7 +7,7 @@
 #include <gtest/gtest.h>
 
 using namespace std::chrono_literals;
-namespace timer = ext::sys::utils::timer;
+namespace timer = csc::utils::timer;
 
 TEST(TimerTest, MeasureExecution)
 {
@@ -33,7 +33,7 @@ TEST(TimerTest, ScopeLogic)
 TEST(TimerTest, IntegratedLoggerTest)
 {
      {
-          ext::sys::utils::timer::Timer t( "IntegrationCheck" );
+          csc::utils::timer::Timer t( "IntegrationCheck" );
           std::this_thread::sleep_for( std::chrono::milliseconds( 10 ) );
      }
      SUCCEED();

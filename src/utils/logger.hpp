@@ -7,7 +7,7 @@
 #include <fmt/format.h> 
 #include <utility>
 
-namespace ext::sys::utils::logger
+namespace csc::utils::logger
 {
 
 template< typename... Args >
@@ -56,4 +56,4 @@ inline void error( format_str_t< Args... > fmt_str, Args&&... args )
 #endif
 }
 
-} // namespace ext::sys::utils::logger
+} // namespace csc::utils::logger

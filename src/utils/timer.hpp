@@ -6,9 +6,12 @@
 #include <iostream>
 #include <string>
 #include <string_view>
+#include "daemon/load_daemon.hpp"
 
-namespace ext::sys::utils::timer
+namespace csc::utils::timer
 {
+
+inline csc::daemon::load_daemon::LoadMonitor t;
 
 class Timer final
 {
@@ -43,7 +46,7 @@ public:
           }
           std::cout << std::endl;
 
-          ext::sys::utils::logger::info( "[TIMER] {} : {} {}", m_measurement_, value, unit );
+          csc::utils::logger::info( "[TIMER] {} : {} {}", m_measurement_, value, unit );
      }
 
 private:
@@ -51,4 +54,4 @@ private:
      std::chrono::time_point< std::chrono::steady_clock > m_start_;
 };
 
-} // namespace ext::sys::utils::timer
+} // namespace csc::utils::timer
