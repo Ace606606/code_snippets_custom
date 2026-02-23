@@ -14,7 +14,7 @@ TEST(TimerTest, MeasureExecution)
      EXPECT_NO_THROW
      ({
           timer::Timer t( "TestMeasurement" );
-          std::this_thread::sleep_for( 10ms );
+          std::this_thread::sleep_for( 10ns );
      });
 }
 
@@ -24,8 +24,17 @@ TEST(TimerTest, ScopeLogic)
      
      {
           timer::Timer t( "ScopeTest" );
-          std::this_thread::sleep_for( 5ms );
+          std::this_thread::sleep_for( 10us );
           passed = true;
      }
      EXPECT_TRUE( passed );
+}
+
+TEST(TimerTest, IntegratedLoggerTest)
+{
+     {
+          ext::sys::utils::timer::Timer t( "IntegrationCheck" );
+          std::this_thread::sleep_for( std::chrono::milliseconds( 10 ) );
+     }
+     SUCCEED();
 }

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "utils/logger.hpp"
+
 #include <chrono>
 #include <iostream>
 #include <string>
@@ -17,24 +19,31 @@ public:
           auto end = std::chrono::steady_clock::now();
           auto diff = end - m_start_;
 
-          std::cout << "[TIMER] " << m_measurement_ << " : ";
-
-          if( diff < std::chrono::milliseconds( 1 ) )
+          std::string unit;
+          double value{};
+          if( diff < std::chrono::microseconds( 1 ) )
           {
-               auto us = std::chrono::duration_cast< std::chrono::microseconds >( diff ).count();
-               std::cout << us << " us";
+               value = static_cast< double >( std::chrono::duration_cast< std::chrono::nanoseconds >( diff ).count() );
+               unit = "ns";
+          }
+          else if( diff < std::chrono::milliseconds( 1 ) )
+          {
+               value = static_cast< double >( std::chrono::duration_cast< std::chrono::microseconds >( diff ).count() );
+               unit = "us";
           }
           else if( diff < std::chrono::seconds( 1 ) )
           {
-               auto ms = std::chrono::duration_cast< std::chrono::milliseconds >( diff ).count();
-               std::cout << ms << " ms";
+               value = static_cast< double >( std::chrono::duration_cast< std::chrono::milliseconds >( diff ).count() );
+               unit = "ms";
           }
           else
           {
-               auto s = std::chrono::duration< double >( diff ).count();
-               std::cout << s << " s";
+               value = std::chrono::duration< double >( diff ).count();
+               unit = "s";
           }
           std::cout << std::endl;
+
+          ext::sys::utils::logger::info( "[TIMER] {} : {} {}", m_measurement_, value, unit );
      }
 
 private:
