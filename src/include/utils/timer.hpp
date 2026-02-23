@@ -15,7 +15,7 @@ public:
      ~Timer()
      {
           auto end = std::chrono::steady_clock::now();
-          std::chrono::duration diff = end - m_start_;
+          auto diff = end - m_start_;
 
           std::cout << "[TIMER] " << m_measurement_ << " : ";
 
