@@ -2,8 +2,6 @@
 
 #ifdef USE_SPDLOG
      #include <spdlog/spdlog.h>
-#else
-     #include <iostream>
 #endif
 
 #include <fmt/format.h> 
