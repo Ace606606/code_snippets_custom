@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <cstddef>
 #include <iostream>
 #include <vector>
 
@@ -10,12 +11,12 @@ namespace examples
 
 using Timer = csc::utils::timer::Timer;
 
-void test_heavy_computation( int count_elem )
+void test_heavy_computation( size_t count_elem )
 {
      Timer t( "Sort 10M elements" );
 
      std::vector< int > data( count_elem );
-     for( int i{ 0 }; i < count_elem; ++i )
+     for( size_t i{ 0 }; i < count_elem; ++i )
      {
           std::sqrt( i );
      }

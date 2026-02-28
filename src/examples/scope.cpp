@@ -6,5 +6,4 @@ int main()
      logger::init_logger();
 
      logger::info("Run test internal scope");
-     //csc::daemon::load_daemon::LoadMonitor t;
 }
