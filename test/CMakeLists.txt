@@ -17,7 +17,7 @@ add_executable(${UNIT_TEST}
 
 target_link_libraries(${UNIT_TEST}
      PRIVATE
-     csc::core
+     csc::utils
      GTest::gtest
 )
 

@@ -1,8 +1,8 @@
 #include <csignal>
 #include <fstream>
 #include <optional>
-#include "daemon/load_daemon.hpp"
-#include "utils/logger.hpp"
+#include "csc/daemon/load_daemon.hpp"
+#include "csc/utils/logger.hpp"
 
 namespace csc::daemon::load_daemon
 {

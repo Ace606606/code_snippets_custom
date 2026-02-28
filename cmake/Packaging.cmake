@@ -16,7 +16,7 @@ if(EXISTS "${CMAKE_SOURCE_DIR}/cmake/systemd/csc-load-daemon.service")
             DESTINATION /lib/systemd/system)
 endif()
 
-install(DIRECTORY "${CMAKE_SOURCE_DIR}/src/utils/"
+install(DIRECTORY "${CMAKE_SOURCE_DIR}/src/include/"
         DESTINATION include/csc
         FILES_MATCHING PATTERN "*.hpp"
         PATTERN "CMakeLists.txt" EXCLUDE)

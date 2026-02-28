@@ -1,5 +1,5 @@
-#include "daemon/load_daemon.hpp"
-#include "utils/logger.hpp"
+#include "csc/daemon/load_daemon.hpp"
+#include "csc/utils/logger.hpp"
 
 int main() {
     try {

@@ -1,21 +1,15 @@
 # src/utils/CMakeLists.txt
 
-set(LIB_TARGET "csc_utils")
-add_library(${LIB_TARGET} INTERFACE)
-add_library(csc::utils ALIAS ${LIB_TARGET})
+add_library(csc_utils INTERFACE)
+add_library(csc::utils ALIAS csc_utils)
 
-target_include_directories(${LIB_TARGET} INTERFACE ${CMAKE_SOURCE_DIR}/src)
+target_include_directories(csc_utils INTERFACE ${PROJECT_SOURCE_DIR}/src/include)
 
 if(TARGET fmt)
-     target_link_libraries(${LIB_TARGET} INTERFACE fmt::fmt)
+     target_link_libraries(csc_utils INTERFACE fmt::fmt)
 endif()
 
 if(TARGET spdlog)
-     target_link_libraries(${LIB_TARGET} INTERFACE spdlog::spdlog)
-endif()
-
-target_link_libraries(${LIB_TARGET} INTERFACE spdlog::spdlog fmt::fmt)
-
-if(TARGET spdlog)
-     target_compile_definitions(${LIB_TARGET} INTERFACE USE_SPDLOG)
+     target_link_libraries(csc_utils INTERFACE spdlog::spdlog)
+     target_compile_definitions(csc_utils INTERFACE USE_SPDLOG)
 endif()

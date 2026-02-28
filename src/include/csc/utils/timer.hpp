@@ -1,17 +1,14 @@
 #pragma once
 
-#include "utils/logger.hpp"
+#include "csc/utils/logger.hpp"
 
 #include <chrono>
 #include <iostream>
 #include <string>
 #include <string_view>
-#include "daemon/load_daemon.hpp"
 
 namespace csc::utils::timer
 {
-
-inline csc::daemon::load_daemon::LoadMonitor t;
 
 class Timer final
 {
