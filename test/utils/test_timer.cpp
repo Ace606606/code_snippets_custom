@@ -1,27 +1,26 @@
 #include "csc/utils/timer.hpp"
 
+#include <chrono>
 #include <ctime>
 #include <thread>
-#include <chrono>
 
 #include <gtest/gtest.h>
 
 using namespace std::chrono_literals;
 namespace timer = csc::utils::timer;
 
-TEST(TimerTest, MeasureExecution)
+TEST( TimerTest, MeasureExecution )
 {
-     EXPECT_NO_THROW
-     ({
+     EXPECT_NO_THROW( {
           timer::Timer t( "TestMeasurement" );
           std::this_thread::sleep_for( 10ns );
-     });
+     } );
 }
 
-TEST(TimerTest, ScopeLogic)
+TEST( TimerTest, ScopeLogic )
 {
      bool passed = false;
-     
+
      {
           timer::Timer t( "ScopeTest" );
           std::this_thread::sleep_for( 10us );
@@ -30,7 +29,7 @@ TEST(TimerTest, ScopeLogic)
      EXPECT_TRUE( passed );
 }
 
-TEST(TimerTest, IntegratedLoggerTest)
+TEST( TimerTest, IntegratedLoggerTest )
 {
      {
           csc::utils::timer::Timer t( "IntegrationCheck" );

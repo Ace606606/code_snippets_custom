@@ -1,7 +1,7 @@
+#include "csc/daemon/load_daemon.hpp"
 #include <csignal>
 #include <fstream>
 #include <optional>
-#include "csc/daemon/load_daemon.hpp"
 #include "csc/utils/logger.hpp"
 
 namespace csc::daemon::load_daemon
@@ -34,7 +34,7 @@ void LoadMonitor::run()
 std::optional< double > LoadMonitor::fetch_cpu_load()
 {
      static std::ifstream file( "/proc/loadavg" );
-     if( !file.is_open() ) 
+     if( !file.is_open() )
      {
           return std::nullopt;
      }

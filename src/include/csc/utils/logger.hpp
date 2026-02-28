@@ -1,10 +1,10 @@
 #pragma once
 
 #ifdef USE_SPDLOG
-     #include <spdlog/spdlog.h>
+#include <spdlog/spdlog.h>
 #endif
 
-#include <fmt/format.h> 
+#include <fmt/format.h>
 #include <utility>
 
 namespace csc::utils::logger
@@ -29,8 +29,8 @@ inline void debug( format_str_t< Args... > fmt_str, Args&&... args )
 #ifdef USE_SPDLOG
      spdlog::debug( fmt_str, std::forward< Args >( args )... );
 #else
-     fmt::print(stdout, "[DEBUG] {}\n", fmt::format(fmt_str, std::forward<Args>(args)...));
-     fflush(stdout);
+     fmt::print( stdout, "[DEBUG] {}\n", fmt::format( fmt_str, std::forward< Args >( args )... ) );
+     fflush( stdout );
 #endif
 }
 
@@ -40,8 +40,8 @@ inline void info( format_str_t< Args... > fmt_str, Args&&... args )
 #ifdef USE_SPDLOG
      spdlog::info( fmt_str, std::forward< Args >( args )... );
 #else
-     fmt::print(stdout, "[INFO] {}\n", fmt::format(fmt_str, std::forward<Args>(args)...));
-     fflush(stdout);
+     fmt::print( stdout, "[INFO] {}\n", fmt::format( fmt_str, std::forward< Args >( args )... ) );
+     fflush( stdout );
 #endif
 }
 
@@ -51,8 +51,8 @@ inline void error( format_str_t< Args... > fmt_str, Args&&... args )
 #ifdef USE_SPDLOG
      spdlog::error( fmt_str, std::forward< Args >( args )... );
 #else
-     fmt::print(stdout, "[ERROR] {}\n", fmt::format(fmt_str, std::forward<Args>(args)...));
-     fflush(stdout);
+     fmt::print( stdout, "[ERROR] {}\n", fmt::format( fmt_str, std::forward< Args >( args )... ) );
+     fflush( stdout );
 #endif
 }
 

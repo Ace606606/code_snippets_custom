@@ -21,6 +21,7 @@ public:
 
           std::string unit;
           double value{};
+
           if( diff < std::chrono::microseconds( 1 ) )
           {
                value = static_cast< double >( std::chrono::duration_cast< std::chrono::nanoseconds >( diff ).count() );
