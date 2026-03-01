@@ -3,7 +3,6 @@
 #include "csc/utils/logger.hpp"
 
 #include <chrono>
-#include <iostream>
 #include <string>
 #include <string_view>
 
@@ -42,7 +41,6 @@ public:
                value = std::chrono::duration< double >( diff ).count();
                unit = "s";
           }
-          std::cout << std::endl;
 
           csc::utils::logger::info( "[TIMER] {} : {} {}", m_measurement_, value, unit );
      }

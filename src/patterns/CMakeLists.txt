@@ -3,3 +3,4 @@
 add_subdirectory(ebo)
 add_subdirectory(erase_remove)
 add_subdirectory(pimpl)
+add_subdirectory(sbo)
