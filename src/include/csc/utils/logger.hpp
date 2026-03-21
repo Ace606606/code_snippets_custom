@@ -1,5 +1,6 @@
 #pragma once
 
+#include "spdlog/common.h"
 #ifdef USE_SPDLOG
 #include <spdlog/spdlog.h>
 #endif
@@ -13,12 +14,12 @@ namespace csc::utils::logger
 template< typename... Args >
 using format_str_t = fmt::format_string< Args... >;
 
-inline void init_logger()
+inline void init_logger( spdlog::level::level_enum level = spdlog::level::debug )
 {
 #ifdef USE_SPDLOG
 
      spdlog::set_pattern( "[%Y-%m-%d %H:%M:%S] [%^%l%$] %v" );
-     spdlog::set_level( spdlog::level::debug );
+     spdlog::set_level( level );
 
 #endif
 }

@@ -2,6 +2,7 @@
 build*
 .clang*
 src/examples/test.cpp
+cmake_dependencies
 
 py/*.toml
 

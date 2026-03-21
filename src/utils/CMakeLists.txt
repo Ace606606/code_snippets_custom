@@ -15,6 +15,8 @@ if(TARGET fmt)
      target_link_libraries(csc_utils INTERFACE fmt::fmt)
 endif()
 
+target_link_libraries(csc_utils INTERFACE CLI11::CLI11)
+
 if(TARGET spdlog)
      target_link_libraries(csc_utils INTERFACE spdlog::spdlog)
      target_compile_definitions(csc_utils INTERFACE USE_SPDLOG)

@@ -7,7 +7,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 option(CSC_BUILD_EXTERNAL_DEPS "Build external dependencies" ON)
 option(CSC_BUILD_EXAMPLES "Build examples application" ON)
-option(CSC_BUILD_TESTS "Build tests" ON)
+option(CSC_BUILD_TESTS "Build tests" OFF)
 option(CSC_INSTALL "Install in system" OFF)
 option(CSC_ENABLE_SANITIZERS "Enable sanitizers" OFF)
 option(STRING_MODE "Treat warnings as errors" ON)

@@ -4,6 +4,7 @@ include(FetchContent)
 
 option(CSC_BUILD_SPDLOG "Build spdlog" ON)
 option(CSC_BUILD_GTEST "Build google tests" ON)
+option(CSC_BUILD_CLI11 "Build cli11" ON)
 
 if(CSC_BUILD_SPDLOG)
      message(STATUS "spdlog fetching from GitHub...")
@@ -26,4 +27,14 @@ if(CSC_BUILD_GTEST)
      set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
      set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
      FetchContent_MakeAvailable(googletest)
+endif()
+
+if(CSC_BUILD_CLI11)
+     message(STATUS "cli11 fething from GitHub...")
+     FetchContent_Declare(
+          cli11
+          GIT_REPOSITORY https://github.com/CLIUtils/CLI11
+          GIT_TAG v2.6.2
+     )
+     FetchContent_MakeAvailable(cli11)
 endif()
