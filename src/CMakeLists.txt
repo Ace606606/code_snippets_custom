@@ -10,3 +10,7 @@ endif()
 if(CSC_BUILD_PATTERNS)
      add_subdirectory(patterns)
 endif()
+
+if (CSC_BUILD_SANDBOX)
+     add_subdirectory(sandbox)
+endif()

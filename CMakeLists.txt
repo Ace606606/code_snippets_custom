@@ -6,12 +6,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 option(CSC_BUILD_EXTERNAL_DEPS "Build external dependencies" ON)
-option(CSC_BUILD_EXAMPLES "Build examples application" ON)
+option(CSC_BUILD_EXAMPLES "Build examples application" OFF)
 option(CSC_BUILD_TESTS "Build tests" OFF)
 option(CSC_INSTALL "Install in system" OFF)
 option(CSC_ENABLE_SANITIZERS "Enable sanitizers" OFF)
 option(STRING_MODE "Treat warnings as errors" ON)
-option(CSC_BUILD_PATTERNS "Build C++ patterns examples" ON)
+option(CSC_BUILD_PATTERNS "Build C++ patterns examples" OFF)
+option(CSC_BUILD_SANDBOX "Build C++ sandbox" ON)
 
 add_subdirectory(third_party)
 
