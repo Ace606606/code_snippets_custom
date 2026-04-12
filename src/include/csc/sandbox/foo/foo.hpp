@@ -1,3 +1,5 @@
+#pragma once
+
 #include "csc/utils/logger.hpp"
 
 namespace csc::sandbox::foo
