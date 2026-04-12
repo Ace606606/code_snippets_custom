@@ -3,9 +3,9 @@
 #define SANDBOX_FOO 1
 #define SANDBOX_SHARED_HEAP 1
 
-#define OVVERLOAD_STRING_OPERATOR 0
+#define OVERLOAD_STRING_OPERATOR 0
 
-constexpr size_t SIZE_OUT = 50;
+constexpr size_t kSizeOut = 50;
 
 #if SANDBOX_FOO
 #include "csc/sandbox/foo/foo.hpp"
@@ -15,7 +15,7 @@ constexpr size_t SIZE_OUT = 50;
 #include "csc/sandbox/shared_heap/shared_heap.hpp"
 #endif
 
-#if OVVERLOAD_STRING_OPERATOR
+#if OVERLOAD_STRING_OPERATOR
 #include <string>
 namespace
 {
@@ -36,26 +36,30 @@ int main()
 {
      namespace log = csc::utils::logger;
      log::init_logger();
-#if OVVERLOAD_STRING_OPERATOR
-     log::info( "{}", std::string( "=" ) * SIZE_OUT );
-     log::info( "RUN SANDBOX" );
-     log::info( "{}", std::string( "=" ) * SIZE_OUT );
+#if OVERLOAD_STRING_OPERATOR
+     {
+          log::info( "{}", std::string( "=" ) * kSizeOut );
+          log::info( "RUN SANDBOX" );
+          log::info( "{}", std::string( "=" ) * kSizeOut );
+     }
 #else
-     log::info( "{:=^{}}", " RUN SANDBOX ", SIZE_OUT );
+     log::info( "{:=^{}}", " RUN SANDBOX ", kSizeOut );
 #endif
 
 #if SANDBOX_FOO
      {
-          log::info( "{:-^{}}", " RUN FOO ", SIZE_OUT );
-          namespace Foo = csc::sandbox::foo;
-          Foo::Foo< int, float > foo{ 1, 2.0F };
+          log::info( "{:-^{}}", " RUN FOO ", kSizeOut );
+          namespace foo = csc::sandbox::foo;
+          foo::Foo< int, float > cfoo{ 1, 2.0F };
      }
 #endif
 
 #if SANDBOX_SHARED_HEAP
-     log::info( "{:-^{}}", " SANDBOX_SHARED_HEAP ", SIZE_OUT );
-     namespace shared_heap = csc::sandbox::shared_heap;
-     shared_heap::WrapperHeap< int > wptr( static_cast< int* >( new int ) );
+     {
+          log::info( "{:-^{}}", " SANDBOX_SHARED_HEAP ", kSizeOut );
+          namespace shared_heap = csc::sandbox::shared_heap;
+          shared_heap::WrapperHeap< int > wptr( static_cast< int* >( new int ) );
+     }
 #endif
 
      return 0;
