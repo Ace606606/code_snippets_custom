@@ -1,7 +1,15 @@
 # src/CMakeLists.txt
 
 add_subdirectory(utils)
-add_subdirectory(daemon)
+
+
+if(CSC_BUILD_TRAFFIC_GEN)
+     add_subdirectory(traffic_gen)
+endif()
+
+if(CSC_BUILD_DAEMON)
+     add_subdirectory(daemon)
+endif()
 
 if(CSC_BUILD_EXAMPLES)
      add_subdirectory(examples)

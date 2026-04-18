@@ -12,7 +12,9 @@ option(CSC_INSTALL "Install in system" OFF)
 option(CSC_ENABLE_SANITIZERS "Enable sanitizers" OFF)
 option(STRING_MODE "Treat warnings as errors" ON)
 option(CSC_BUILD_PATTERNS "Build C++ patterns examples" OFF)
-option(CSC_BUILD_SANDBOX "Build C++ sandbox" ON)
+option(CSC_BUILD_SANDBOX "Build C++ sandbox" OFF)
+option(CSC_BUILD_TRAFFIC_GEN "Build traffic gen" ON)
+option(CSC_BUILD_DAEMON "Build traffic gen" OFF)
 
 add_subdirectory(third_party)
 

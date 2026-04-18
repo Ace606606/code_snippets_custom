@@ -3,7 +3,7 @@
 #define SANDBOX_FOO 1
 #define SANDBOX_SHARED_HEAP 1
 
-#define OVERLOAD_STRING_OPERATOR 0
+#define OVERLOAD_STRING_OPERATOR 1
 
 constexpr size_t kSizeOut = 50;
 
