@@ -2,6 +2,8 @@
 
 add_executable(traffic_gen
      main.cpp
+     stack/config.cpp
+     builder/packet_builder.cpp
 )
 target_link_libraries(traffic_gen PRIVATE csc::utils)
 

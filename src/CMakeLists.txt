@@ -2,7 +2,6 @@
 
 add_subdirectory(utils)
 
-
 if(CSC_BUILD_TRAFFIC_GEN)
      add_subdirectory(traffic_gen)
 endif()
