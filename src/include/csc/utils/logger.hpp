@@ -57,4 +57,15 @@ inline void error( format_str_t< Args... > fmt_str, Args&&... args )
 #endif
 }
 
+template< typename... Args >
+inline void warn( format_str_t< Args... > fmt_str, Args&&... args )
+{
+#ifdef USE_SPDLOG
+     spdlog::warn( fmt_str, std::forward< Args >( args )... );
+#else
+     fmt::print( stdout, "[WARNING] {}\n", fmt::format( fmt_str, std::forward< Args >( args )... ) );
+     fflush( stdout );
+#endif
+}
+
 } // namespace csc::utils::logger
