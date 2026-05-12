@@ -18,6 +18,12 @@ target_link_libraries(generator_value PRIVATE csc::utils)
 add_executable(example_xor other/example_xor.cpp)
 target_link_libraries(example_xor PRIVATE csc::utils)
 
+# add_executable(example_lru_cache other/example_lru_cache.cpp)
+# target_link_libraries(example_xor PRIVATE csc::utils)
+
+add_executable(main custom/main.cpp)
+target_link_libraries(main PRIVATE csc::utils)
+
 set_target_properties(
      example_timer
      example_logger
@@ -29,6 +35,7 @@ set_target_properties(
 
 set_target_properties(
      example_xor
+     # example_lru_cache
      PROPERTIES RUNTIME_OUTPUT_DIRECTORY
      "${CMAKE_BINARY_DIR}/examples/other"
 )
@@ -38,3 +45,10 @@ set_target_properties(
      PROPERTIES RUNTIME_OUTPUT_DIRECTORY
      "${CMAKE_BINARY_DIR}/examples/benchmarks"
 )
+
+set_target_properties(
+     main
+     PROPERTIES RUNTIME_OUTPUT_DIRECTORY
+     "${CMAKE_BINARY_DIR}/examples/custom"
+)
+
