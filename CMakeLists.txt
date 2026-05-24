@@ -11,7 +11,6 @@ option(CSC_BUILD_TESTS "Build tests" OFF)
 option(CSC_INSTALL "Install in system" OFF)
 option(CSC_ENABLE_SANITIZERS "Enable sanitizers" OFF)
 option(STRING_MODE "Treat warnings as errors" ON)
-option(CSC_BUILD_PATTERNS "Build C++ patterns examples" OFF)
 option(CSC_BUILD_SANDBOX "Build C++ sandbox" OFF)
 
 add_subdirectory(third_party)

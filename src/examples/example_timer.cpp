@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 
-namespace examples
+namespace csc::examples
 {
 
 using Timer = csc::utils::timer::Timer;
@@ -24,7 +24,7 @@ void test_heavy_computation( size_t count_elem )
      std::sort( data.begin(), data.end() );
 }
 
-} // namespace examples
+} // namespace csc::examples
 
 int main()
 {
@@ -32,7 +32,7 @@ int main()
 
      constexpr int count_elem = 1000000;
 
-     examples::test_heavy_computation( count_elem );
+     csc::examples::test_heavy_computation( count_elem );
 
      std::cout << "--- Starting performance test ---" << std::endl;
 }

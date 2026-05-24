@@ -1,4 +1,4 @@
-#include "pimpl_example.hpp"
+#include "csc/patterns/pimple/pimpl_example.hpp"
 #include "csc/utils/logger.hpp"
 
 /*
@@ -28,4 +28,12 @@ Widget::~Widget() = default;
 void Widget::do_work() const
 {
      m_->work();
+}
+
+int main()
+{
+     Widget w;
+     w.do_work();
+     w.do_work();
+     return 0;
 }

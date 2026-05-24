@@ -1,6 +1,6 @@
 #include "csc/utils/logger.hpp"
 
-namespace examples
+namespace csc::examples
 {
 
 namespace logger = csc::utils::logger;
@@ -15,10 +15,10 @@ void run_logger_demo()
      logger::error( "Connection failed for host: {}", "127.0.0.1" );
 }
 
-} // namespace examples
+} // namespace csc::examples
 
 int main()
 {
-     examples::run_logger_demo();
+     csc::examples::run_logger_demo();
      return 0;
 }

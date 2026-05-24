@@ -1,4 +1,4 @@
-#include "small_buffer_opt.hpp"
+#include "csc/patterns/sbo/small_buffer_opt.hpp"
 
 #include <array>
 #include <functional>

@@ -5,6 +5,9 @@
 #include "CLI/CLI.hpp"
 #include "csc/utils/base_cli.hpp"
 
+namespace csc::examples
+{
+
 using BaseCli = csc::utils::cli::BaseCli;
 
 class FullExampleCli : public BaseCli
@@ -92,9 +95,11 @@ private:
      float ratio{};
 };
 
+} // namespace csc::examples
+
 int main( int argc, char** argv )
 {
-     FullExampleCli cli( "example", "example_cli" );
+     csc::examples::FullExampleCli cli( "example", "example_cli" );
      if ( cli.parse( argc, argv ) )
      {
           cli.print_info();

@@ -1,54 +1,46 @@
 # src/examples/CMakeLists.txt
 
-add_executable(example_timer example_timer.cpp)
-target_link_libraries(example_timer PRIVATE csc::utils)
+function(add_example_bin SOURCE_FILE SUB_DIR)
+     get_filename_component(BIN_NAME "${SOURCE_FILE}" NAME_WE)
 
-add_executable(example_logger example_logger.cpp)
-target_link_libraries(example_logger PRIVATE csc::utils)
+     add_executable(${BIN_NAME} "${SOURCE_FILE}")
+     
+     target_link_libraries(${BIN_NAME} PRIVATE csc::utils)
 
-add_executable(example_scope example_scope.cpp)
-target_link_libraries(example_scope PRIVATE csc::utils)
+     if(ARGN)
+          target_link_libraries(${BIN_NAME} PRIVATE ${ARGN})
+     endif()
 
-add_executable(example_cli example_cli.cpp)
-target_link_libraries(example_cli PRIVATE csc::utils)
 
-add_executable(generator_value benchmarks/generator_value.cpp)
-target_link_libraries(generator_value PRIVATE csc::utils)
+     if(SUB_DIR STREQUAL "")
+          set_target_properties(${BIN_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/examples")
+     else()
+          set_target_properties(${BIN_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/examples/${SUB_DIR}")
+     endif()
+endfunction()
 
-add_executable(example_xor other/example_xor.cpp)
-target_link_libraries(example_xor PRIVATE csc::utils)
+add_example_bin(example_timer.cpp "")
+add_example_bin(example_logger.cpp "")
+add_example_bin(example_scope.cpp "")
+add_example_bin(example_cli.cpp "")
 
-# add_executable(example_lru_cache other/example_lru_cache.cpp)
-# target_link_libraries(example_xor PRIVATE csc::utils)
+add_example_bin(benchmarks/generator_value.cpp "benchmarks")
 
-add_executable(main custom/main.cpp)
-target_link_libraries(main PRIVATE csc::utils)
+add_example_bin(other/example_xor.cpp "other")
 
-set_target_properties(
-     example_timer
-     example_logger
-     example_scope
-     example_cli
-     PROPERTIES RUNTIME_OUTPUT_DIRECTORY
-     "${CMAKE_BINARY_DIR}/examples"
-)
+add_example_bin(patterns/ebo_example.cpp "patterns")
+add_example_bin(patterns/erase_remove_benchmark.cpp "patterns")
+add_example_bin(patterns/sbo_benchmark.cpp "patterns")
+add_example_bin(patterns/pimpl_example.cpp "patterns")
 
-set_target_properties(
-     example_xor
-     # example_lru_cache
-     PROPERTIES RUNTIME_OUTPUT_DIRECTORY
-     "${CMAKE_BINARY_DIR}/examples/other"
-)
+add_example_bin(daemons/example_load_daemon.cpp "daemons" csc::daemon)
 
-set_target_properties(
-     generator_value
-     PROPERTIES RUNTIME_OUTPUT_DIRECTORY
-     "${CMAKE_BINARY_DIR}/examples/benchmarks"
-)
+add_example_bin(containers/example_lru_cache.cpp "containers")
 
-set_target_properties(
-     main
-     PROPERTIES RUNTIME_OUTPUT_DIRECTORY
-     "${CMAKE_BINARY_DIR}/examples/custom"
-)
+#add_example_bin(custom/main.cpp "custom")
 
+file(GLOB CUSTOM_FILES "custom/*.cpp")
+
+foreach(SOURCE_FILE ${CUSTOM_FILES})
+     add_example_bin("${SOURCE_FILE}" "custom")
+endforeach()

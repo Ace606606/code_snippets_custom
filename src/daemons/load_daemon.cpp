@@ -1,4 +1,4 @@
-#include "csc/daemon/load_daemon.hpp"
+#include "csc/daemons/load_daemon.hpp"
 #include <csignal>
 #include <fstream>
 #include <optional>
