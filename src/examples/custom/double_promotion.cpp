@@ -27,7 +27,7 @@ void test_double_promotion()
           Timer tm( "double res = f1 * d1" );
           for ( int i = 0; i < 100'000'000; ++i )
           {
-               [[maybe_unused]] double res = f1 * d1; 
+               [[maybe_unused]] double res = f1 * d1;
           }
      }
 

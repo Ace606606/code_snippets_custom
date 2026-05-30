@@ -37,10 +37,10 @@ add_example_bin(daemons/example_load_daemon.cpp "daemons" csc::daemon)
 
 add_example_bin(containers/example_lru_cache.cpp "containers")
 
-#add_example_bin(custom/main.cpp "custom")
-
 file(GLOB CUSTOM_FILES "custom/*.cpp")
 
 foreach(SOURCE_FILE ${CUSTOM_FILES})
      add_example_bin("${SOURCE_FILE}" "custom")
 endforeach()
+
+add_example_bin(pipeline/pipeline_arp.cpp "pipeline" csc::utils)
