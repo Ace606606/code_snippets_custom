@@ -34,7 +34,7 @@ public:
      }
 
 private:
-    std::vector< std::unique_ptr< NetworkProtocolBase< MaxSize > > > protocols_;
+     std::vector< std::unique_ptr< NetworkProtocolBase< MaxSize > > > protocols_;
 };
 
 } // namespace csc::pipeline

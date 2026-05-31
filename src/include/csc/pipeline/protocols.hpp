@@ -6,9 +6,9 @@ namespace csc::pipeline
 
 struct [[gnu::packed]] EthernetHeader
 {
-     MacAddress dst_mac{ 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
-     MacAddress src_mac{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-     uint16_t   type{ 0 };
+     MacAddress  dst_mac{ 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
+     MacAddress  src_mac{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+     uint16_t    type{ 0 };
 };
 
 struct [[gnu::packed]] ArpHeader
@@ -24,5 +24,7 @@ struct [[gnu::packed]] ArpHeader
      MacAddress  target_mac{};
      Ipv4Address target_ip{};
 };
+
+
 
 } // namespace csc::pipeline
