@@ -1,16 +1,18 @@
-# third_party/CMakeLists.txt
+set(BUILD_SHARED_LIBS OFF CACHE INTERNAL "Build static libraries")
 
 set(FMT_INSTALL OFF CACHE INTERNAL "")
 set(FMT_DOC OFF CACHE INTERNAL "")
 set(FMT_TEST OFF CACHE INTERNAL "")
+add_subdirectory(fmt EXCLUDE_FROM_ALL)
 
-if(IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/fmt")
-     add_subdirectory(fmt EXCLUDE_FROM_ALL)
-else()
-     message(FATAL_ERROR
-          "FMT submodule not found at: ${CMAKE_CURRENT_SOURCE_DIR}/fmt\n"
-          "Please run: git submodule update --init --recursive"
-     )
-endif()
 
 set(SPDLOG_FMT_EXTERNAL ON CACHE BOOL "" FORCE)
+set(SPDLOG_BUILD_STATIC ON CACHE INTERNAL "Build spdlog as static lib")
+set(SPDLOG_INSTALL OFF CACHE INTERNAL "")
+add_subdirectory(spdlog EXCLUDE_FROM_ALL)
+
+set(CLI11_BUILD_TESTS OFF CACHE INTERNAL "")
+set(CLI11_BUILD_EXAMPLES OFF CACHE INTERNAL "")
+set(CLI11_BUILD_DOCS OFF CACHE INTERNAL "")
+
+add_subdirectory(CLI11 EXCLUDE_FROM_ALL)

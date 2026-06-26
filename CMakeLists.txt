@@ -6,30 +6,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 option(CSC_BUILD_EXTERNAL_DEPS "Build external dependencies" ON)
-option(CSC_BUILD_EXAMPLES "Build examples application" ON)
-option(CSC_BUILD_TESTS "Build tests" OFF)
-option(CSC_INSTALL "Install in system" OFF)
 option(CSC_ENABLE_SANITIZERS "Enable sanitizers" OFF)
-option(STRING_MODE "Treat warnings as errors" ON)
-option(CSC_BUILD_SANDBOX "Build C++ sandbox" OFF)
+option(STRICT_MODE "Treat warnings as errors" ON)
 
-add_subdirectory(third_party)
-
-if(CSC_BUILD_EXTERNAL_DEPS)
-     list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-     include(Dependencies)
-endif()
-
-add_subdirectory(src)
-
-if(CSC_BUILD_TESTS)
-     enable_testing()
-     add_subdirectory(test)
-endif()
-
-if(CSC_INSTALL)
-     include(cmake/Packaging.cmake)
-endif()
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build static libraries" FORCE)
+set(SPDLOG_BUILD_STATIC ON CACHE BOOL "Build spdlog as static lib" FORCE)
 
 # ---- warnings ----
 add_library(csc_warnings INTERFACE)
@@ -61,3 +42,7 @@ if (CSC_ENABLE_SANITIZERS AND CMAKE_BUILD_TYPE STREQUAL "Debug")
           -fsanitize=undefined
      )
 endif()
+
+
+add_subdirectory(third_party)
+add_subdirectory(src)

@@ -1,13 +1,9 @@
-# src/CMakeLists.txt
-
 add_subdirectory(utils)
-add_subdirectory(daemons)
-add_subdirectory(containers)
 
-if(CSC_BUILD_EXAMPLES)
-     add_subdirectory(examples)
-endif()
+add_executable(main main.cpp)
 
-if (CSC_BUILD_SANDBOX)
-     add_subdirectory(sandbox)
-endif()
+target_link_libraries(main PRIVATE 
+    csc_utils
+    csc_warnings
+    csc_sanitizers
+)
